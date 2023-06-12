@@ -1,0 +1,21 @@
+﻿@model HseFootball.Responses.NewsResponse
+<h3>@Model.Title</h3>
+<p>@Model.Text</p>
+
+@if (Model.Players.Count != 0)
+{
+    <h4>Тэги игроков</h4>
+    @foreach (var p in Model.Players)
+    {
+        <li><a href="/Players/@p.Id"> @p.Name @p.Surname </a></li>
+    }
+}
+
+@if (Model.Teams.Count != 0)
+{
+    <h4>Тэги команд</h4> 
+    @foreach (var p in Model.Teams)
+    {
+        <li><a href="/Teams/@p.Id"> @p.Name </a></li>
+    }
+}

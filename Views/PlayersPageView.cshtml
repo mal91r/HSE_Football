@@ -1,0 +1,20 @@
+﻿@model IEnumerable<HseFootball.Responses.PlayerResponse>
+<h2> Игроки </h2>
+<ul>
+    @foreach (var x in Model)
+    {
+        <li>
+            <p> <a href="/Players/@x.PlayerId"> @x.Name @x.Surname </a> </p>
+            @{
+                if (x.Team == null)
+                {
+                    <p> Команда: Без команды </p>
+                }
+                else
+                {
+                    <p> Команда: <a href="/Teams/@x.TeamId"> @x.Team </a></p>
+                }
+            }
+        </li>
+    }
+</ul>

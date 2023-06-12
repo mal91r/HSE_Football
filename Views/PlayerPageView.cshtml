@@ -1,0 +1,27 @@
+﻿@model HseFootball.Responses.PlayerResponse
+
+<p> Имя: @Model.Name </p>
+<p> Фамилия: @Model.Surname </p>
+
+@{
+    if (Model.Team == null)
+    {
+        <p> Команда: Без команды </p>
+    }
+    else
+    {
+        <p> Команда: <a href="/Teams/@Model.TeamId"> @Model.Team </a></p>
+    }
+}
+
+<ul>
+    @if (Model.News.Count != 0)
+    {
+        <h3>Об игроке в СМИ</h3>
+        foreach (var news in Model.News)
+        {
+                <li> <a href="/News/@news.Id"> @news.Title </a> </li>
+        }
+    }
+</ul>
+

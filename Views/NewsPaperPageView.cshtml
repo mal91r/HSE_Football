@@ -1,0 +1,8 @@
+﻿@model IEnumerable<HseFootball.Responses.NewsResponse>
+<h2> Новости </h2>
+<ul>
+    @foreach (var x in Model)
+    {
+        <li> <a href="/News/@x.Id"> @x.Title </a> </li>
+    }
+</ul>
